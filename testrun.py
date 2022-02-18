@@ -6,9 +6,9 @@ led = LED(17)
 
 def blink():
   led.on()
-  time.sleep(500)
+  time.sleep(1)
   led.off()
-  time.sleep(500)
+  time.sleep(1)
   
 while True:
   blink()
