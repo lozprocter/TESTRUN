@@ -1,14 +1,12 @@
-from turtle import delay
-from gpiozero import LED
+import serial
 import time
 
-led = LED(17)
+if __name__ == '__main__':
+    ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+    ser.flush()
 
-def blink():
-  led.on()
-  time.sleep(1)
-  led.off()
-  time.sleep(1)
-  
-while True:
-  blink()
+    while True:
+        ser.write(b"on/n")
+        time.sleep(1)
+        ser.write(b"off/n")
+        time.sleep(1)
